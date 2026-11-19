@@ -1,6 +1,6 @@
 # Ultra Mega Text Search Tool
 
-A Windows application for indexing and rapidly searching one large text file or many files in a folder and its subfolders. It is well suited to searching and filtering breach dumps locally. Build a database once, then find text quickly and filter the results. Developed by [treveansalt](https://github.com/treveansalt/) with added AI Slop.
+A Windows application for indexing and rapidly searching one large text file or many files in a folder and its subfolders. It is well suited to searching and filtering breach dumps locally. Build a database once, then find text quickly and filter the results. Developed by [treveansalt](https://github.com/treveansalt/) with added AI Slop. The **Jokes** button adds an optional retro falling-letters animation.
 
 ![Retro search logo](assets/Ultra%20Mega%20logo.png)
 

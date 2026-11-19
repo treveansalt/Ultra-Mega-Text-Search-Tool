@@ -20,6 +20,10 @@ Enter at least three characters and click **Search**. Enable **Case sensitive** 
 
 The database and displayed lines can contain sensitive information. Search only files you are authorized to use. A missing result does not prove text has never appeared in another collection.
 
+## Jokes
+
+Click **Jokes** for a retro falling-letters animation inspired by Cascade. Click **Stop Jokes** to return to the normal display. The effect is confined to the app window and does not change files or search results.
+
 ## Troubleshooting
 
 - If Python cannot be found, install Python 3 for Windows with the Python launcher and reopen the app.
