@@ -29,7 +29,7 @@ def build():
     c=connect(); c.execute('PRAGMA journal_mode=WAL'); c.execute('PRAGMA synchronous=NORMAL'); c.execute('PRAGMA cache_size=-%d' % (int(os.environ.get('BREACH_CACHE_MB','256')) * 1024))
     c.execute("CREATE VIRTUAL TABLE IF NOT EXISTS records USING fts5(text, tokenize='trigram')")
     c.execute('CREATE TABLE IF NOT EXISTS completed (path TEXT PRIMARY KEY, size INTEGER, modified INTEGER, rows INTEGER)')
-    c.commit(); files=sorted(p for p in SOURCE.rglob('*') if p.is_file() and not p.is_symlink()); started=time.time(); count=0
+    c.commit(); files=([SOURCE] if SOURCE.is_file() else sorted(p for p in SOURCE.rglob('*') if p.is_file() and not p.is_symlink())); started=time.time(); count=0
     total_bytes=sum(p.stat().st_size for p in files); done_bytes=0
     try:
         for i,p in enumerate(files):
@@ -42,7 +42,7 @@ def build():
                 continue
             if shutil.disk_usage(ROOT).free < MIN_FREE:
                 status(state='Paused: less than 20 GiB free on the database drive. Free space and restart.',file=i,total=len(files),rows=count); break
-            status(state='Indexing',file=i+1,total=len(files),current=str(p.relative_to(SOURCE)),rows=count,seconds=round(time.time()-started),done_bytes=done_bytes,total_bytes=total_bytes)
+            status(state='Indexing',file=i+1,total=len(files),current=(p.name if SOURCE.is_file() else str(p.relative_to(SOURCE))),rows=count,seconds=round(time.time()-started),done_bytes=done_bytes,total_bytes=total_bytes)
             n=0
             try:
                 c.execute('BEGIN')

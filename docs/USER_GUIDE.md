@@ -8,11 +8,11 @@
 
 ## Build the database
 
-Click **Start build** and select the folder that contains your text files. The app remembers this folder and searches files inside its subfolders too. The database is stored under the current user's local app-data folder, in `UltraMegaTextSearchTool`. Allow plenty of free disk space; the index can be larger than the original files.
+Click **Start build** and choose **Yes** for a single text file, or **No** for a folder containing text files. For a folder, files inside subfolders are indexed too. The app remembers your selection. The database is stored under the current user's local app-data folder, in `UltraMegaTextSearchTool`. Allow plenty of free disk space; the index can be larger than the original files.
 
 Wait until the app says **Build complete**. You can click **Pause build** and later **Resume build**; completed files are retained, while the current file may need to be retried. The percentage shows the size of completed files, so it may stay unchanged while a large file is processed. Searches during a build cover only files already indexed.
 
-Keep the source files unchanged during indexing. If an already indexed file changes, a fresh database is required. To build a different collection, close the app and move or remove the `UltraMegaTextSearchTool` folder from your Windows local app-data folder, then reopen the app and choose a new source. This removes the existing index, so keep a backup if you need it.
+Keep the source files unchanged during indexing. If an already indexed file changes, a fresh database is required. To build a different collection, close the app and move or remove the `UltraMegaTextSearchTool` folder from your Windows local app-data folder, then reopen the app and choose a new source file or folder. This removes the existing index, so keep a backup if you need it.
 
 ## Search
 
