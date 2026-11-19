@@ -4,7 +4,7 @@ class CascadeOverlay : Control {
  readonly Bitmap snapshot; readonly List<Rectangle> regions=new List<Rectangle>(); readonly List<Glyph> glyphs=new List<Glyph>(); readonly System.Windows.Forms.Timer clock=new System.Windows.Forms.Timer(); readonly Random random=new Random(); int tick;
  public CascadeOverlay(Form form) {
   DoubleBuffered=true; Bounds=form.ClientRectangle; Anchor=AnchorStyles.Top|AnchorStyles.Bottom|AnchorStyles.Left|AnchorStyles.Right;
-  snapshot=new Bitmap(Math.Max(1,form.ClientSize.Width),Math.Max(1,form.ClientSize.Height)); form.DrawToBitmap(snapshot,form.ClientRectangle);
+  snapshot=new Bitmap(Math.Max(1,form.ClientSize.Width),Math.Max(1,form.ClientSize.Height)); using(var full=new Bitmap(Math.Max(1,form.Width),Math.Max(1,form.Height))){form.DrawToBitmap(full,new Rectangle(Point.Empty,form.Size)); Point client=form.PointToScreen(Point.Empty); int left=client.X-form.Left, top=client.Y-form.Top; using(var g=Graphics.FromImage(snapshot)){g.DrawImage(full,new Rectangle(Point.Empty,snapshot.Size),new Rectangle(left,top,snapshot.Width,snapshot.Height),GraphicsUnit.Pixel);}}
   foreach(Control c in form.Controls) { var label=c as Label; if(label==null || c is LinkLabel || !c.Visible || String.IsNullOrWhiteSpace(c.Text))continue;
    regions.Add(c.Bounds); string text=c.Text.Replace("\r"," ").Replace("\n"," "); float x=c.Left, y=c.Top;
    foreach(char ch in text){float w=TextRenderer.MeasureText(ch.ToString(),c.Font,new Size(100,100),TextFormatFlags.NoPadding).Width; if(x+w>c.Right)break; if(!Char.IsWhiteSpace(ch))glyphs.Add(new Glyph{Ch=ch,X=x,Y=y,Delay=random.Next(0,90),V=0}); x+=Math.Max(3,w);}
