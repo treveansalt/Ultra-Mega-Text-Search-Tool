@@ -16,7 +16,7 @@ Keep the source files unchanged during indexing. If an already indexed file chan
 
 ## Search
 
-Enter at least three characters and click **Search**. The default result limit is 500; increase it if you need more results. Enable **Case sensitive** before searching if needed. To narrow the returned lines further, type in **Filter returned results**; clear it to show all returned lines. The filter searches only the results already returned, not matches beyond the result limit. Click **Stop search** to cancel a search.
+Enter at least three characters and click **Search**. Enable **Case sensitive** before searching if needed. To narrow the returned lines further, type in **Filter returned results**; clear it to show all returned lines. The filter searches only the results already returned. Click **Stop search** to cancel a search. Click **Export results** and choose a filename and location to save the currently displayed (filtered) results as a UTF-8 text file. An unfiltered export includes all returned results. Very broad searches can use substantial memory and take time.
 
 The database and displayed lines can contain sensitive information. Search only files you are authorized to use. A missing result does not prove text has never appeared in another collection.
 

@@ -10,7 +10,7 @@ A Windows application for indexing and rapidly searching one large text file or 
 2. Download the repository as a ZIP and extract all files to a folder on your computer.
 3. Run **Ultra Mega Text Search Tool.exe**. Keep `IndexedSearch.py` in the same folder as the app.
 4. Click **Start build**, choose a text file or a folder containing your text files, and wait for the database to finish.
-5. Enter at least three characters and click **Search**. Use **Filter returned results** to narrow the results already found.
+5. Enter at least three characters and click **Search**. Use **Filter returned results** to narrow the results already found, and **Export results** to save them to a text file.
 
 The database is stored in the current Windows user's local app-data folder. Indexing can take a long time and needs substantial free disk space. Searches are incomplete until the build finishes. The app runs locally; the database and results may contain sensitive plaintext.
 

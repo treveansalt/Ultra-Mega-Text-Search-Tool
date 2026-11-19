@@ -69,14 +69,13 @@ if __name__=='__main__':
     if len(sys.argv)>1 and sys.argv[1]=='--build': build()
     elif len(sys.argv)>1 and sys.argv[1]=='--search':
         try:
-            request=json.loads(sys.stdin.readline()); text=request['text']; sensitive=request.get('case',False); maximum=request.get('limit',500)
+            request=json.loads(sys.stdin.readline()); text=request['text']; sensitive=request.get('case',False)
             c=sqlite3.connect('file:'+str(DB).replace('\\','/')+'?mode=ro',uri=True,timeout=30)
             q='"'+text.replace('"','""')+'"'; start=time.monotonic(); count=0
             for (line,) in c.execute('SELECT text FROM records WHERE records MATCH ?', (q,)):
                 if (text in line) if sensitive else (text.lower() in line.lower()):
                     print(json.dumps({'line':line}),flush=True); count+=1
-                    if count>=maximum: break
-            print(json.dumps({'done':count,'seconds':round(time.monotonic()-start,2),'capped':count>=maximum}),flush=True); c.close()
+            print(json.dumps({'done':count,'seconds':round(time.monotonic()-start,2)}),flush=True); c.close()
         except Exception as e: print(json.dumps({'error':str(e)}),flush=True)
     else: print('Run Ultra Mega Text Search Tool.exe to open the application.')
 
