@@ -1,0 +1,18 @@
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.log
+build-status*.json
+build-status*.tmp
+stop-build.flag
+build.lock
+__pycache__/
+*.pyc
+*.exe
+*.txt
+!requirements.txt
+!Ultra Mega Text Search Tool.exe
